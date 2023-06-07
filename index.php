@@ -9,8 +9,11 @@
         return $hotel_i;
     }
 
-    echo strbool(false);
-    echo strbool(true);
+    $parking = $_GET['parking'];
+
+    $parking = $_GET['vote'];
+
+
 
     $hotels = [
 
@@ -74,14 +77,14 @@
         
         <!-- FILTER HOTELS -->
         <form class="d-flex gap-2" method="GET">
-            <select class="form-select w-25 mb-3" aria-label="Default select example">
-                <option selected>Tutti</option>
+            <select class="form-select w-25 mb-3" name="parking" aria-label="Default select example">
+                <option selected value="default">Tutti</option>
                 <option value="1">Con Parcheggio</option>
                 <option value="2">Senza Parcheggio</option>
             </select>
 
-            <select class="form-select w-25 mb-3" aria-label="Default select example">
-                <option selected>Tutti</option>
+            <select class="form-select w-25 mb-3" name="vote" aria-label="Default select example">
+                <option selected value="default">Tutti</option>
                 <option value="1">Voto 1</option>
                 <option value="2">Voto 2</option>
                 <option value="3">Voto 3</option>
@@ -109,11 +112,11 @@
             
             <tbody>
                 <?php foreach ($hotels as $hotel) { ?>
-                <tr>
-                <?php foreach ($hotel as $hotel_i) { ?>
-                    <td class="table-success"><?= strbool($hotel_i) ?></td>
-                <?php } ?>
-                </tr>
+                    <tr>
+                        <?php foreach ($hotel as $hotel_i) { ?>
+                            <td class="table-success"><?= strbool($hotel_i) ?></td>
+                        <?php } ?>
+                    </tr>
                 <?php } ?>
             </tbody>
         </table>
